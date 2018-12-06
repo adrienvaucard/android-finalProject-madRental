@@ -21,7 +21,8 @@
             android:label="Mes Réservations" />
         <activity
             android:name=".ProfileActivity"
-            android:label="Mon Profil"></activity>
+            android:label="Mon Profil" />
+        <activity android:name=".SearchesActivity"></activity>
     </application>
 
 </manifest>

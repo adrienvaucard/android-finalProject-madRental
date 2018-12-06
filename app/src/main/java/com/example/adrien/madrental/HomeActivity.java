@@ -37,4 +37,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToSearch(View view) {
+        Intent intent = new Intent(this, SearchesActivity.class);
+        startActivity(intent);
+    }
+
 }
