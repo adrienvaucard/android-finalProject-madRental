@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">MadRental</string>
+    <string name="app_name">Mad Rental</string>
+    <string name="launchResearch">Lancer une recherche :</string>
+    <string name="startReservationText">Date de début de réservation</string>
+    <string name="endReservationText">Date de fin de réservation</string>
 </resources>
