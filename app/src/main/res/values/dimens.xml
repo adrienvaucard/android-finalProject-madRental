@@ -18,5 +18,9 @@
     <dimen name="editTextMarginY">15dp</dimen>
     <dimen name="editTextPadding">15dp</dimen>
 
+    <dimen name="profileInfoTextSize">30sp</dimen>
+    <dimen name="profileInfoTextMarginX">50dp</dimen>
+    <dimen name="profileApplyButtonMarginY">50dp</dimen>
+
 
 </resources>

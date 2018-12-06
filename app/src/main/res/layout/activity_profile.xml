@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/profileInfoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profileInfoText"
+        android:textColor="@color/textViewProfile"
+        android:textSize="@dimen/profileInfoTextSize"
+        android:layout_marginRight="@dimen/profileInfoTextMarginX"
+        android:layout_marginLeft="@dimen/profileInfoTextMarginX"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/editTextProfileName"/>
+
+    <EditText
+        android:id="@+id/editTextProfileName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        style="@style/defaultEditText"
+        android:hint="@string/editeTextProfileName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/editTextProfileFirstName"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextProfileFirstName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        style="@style/defaultEditText"
+        android:hint="@string/editTextProfileFirstName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextProfileBirthDate"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        style="@style/defaultEditText"
+        android:hint="@string/endReservationText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextProfileFirstName"
+
+        />
+
+    <Button
+        android:id="@+id/applyProfileChanges"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/profileApplyButtonMarginY"
+        style="@style/defaultButton"
+        android:text="Valider"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextProfileBirthDate"
+
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

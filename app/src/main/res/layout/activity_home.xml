@@ -49,6 +49,7 @@
                 android:layout_height="60dp"
                 style="@style/defaultButton"
                 android:text="Mon profil"
+                android:onClick="goToProfile"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/bookings"

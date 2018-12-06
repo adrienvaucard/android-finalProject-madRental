@@ -3,4 +3,8 @@
     <string name="launchResearch">Lancer une recherche :</string>
     <string name="startReservationText">Date de début de réservation</string>
     <string name="endReservationText">Date de fin de réservation</string>
+    <string name="profileInfoText">Merci de renseigner votre profil :</string>
+    <string name="editeTextProfileName">Nom</string>
+    <string name="editTextProfileFirstName">Prénom</string>
+    <string name="editTextProfileBirthDate">Date de naissance</string>
 </resources>

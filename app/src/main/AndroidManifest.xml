@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BookingsActivity"></activity>
+        <activity
+            android:name=".BookingsActivity"
+            android:label="Mes Réservations" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Mon Profil"></activity>
     </application>
 
 </manifest>
