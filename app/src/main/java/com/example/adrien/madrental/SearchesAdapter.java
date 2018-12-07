@@ -22,7 +22,7 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
 
     public class SearchViewHolder extends RecyclerView.ViewHolder
     {
-        //Create future reference of memoLabel
+        //Create future reference of searchLabel
         public TextView searchLabel;
 
         //Constructor
