@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:id="@+id/sliding_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +17,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:gravity="center|top">
+        android:gravity="center"
+        android:id="@+id/filterSlide">
 
         <TextView
             android:layout_width="match_parent"
@@ -27,10 +29,37 @@
             android:textStyle="bold"
             android:gravity="center"/>
 
-        <TextView
-            android:id="@+id/getJson"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="140dp"
+            android:gravity="center"
+            android:paddingRight="50dp"
+            android:paddingLeft="50dp"
+            sothree:layout_constraintTop_toTopOf="@+id/filterSlide"
+            sothree:layout_constraintBottom_toBottomOf="parent"
+            sothree:layout_constraintLeft_toLeftOf="parent"
+            sothree:layout_constraintRight_toRightOf="parent">
+
+            <ToggleButton
+                android:id="@+id/saleToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                sothree:layout_constraintTop_toTopOf="parent"
+                sothree:layout_constraintBottom_toBottomOf="parent"
+                sothree:layout_constraintRight_toLeftOf="@id/saleToggleButtonLabel"
+                sothree:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/saleToggleButtonLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En promotion uniquement"
+                sothree:layout_constraintTop_toTopOf="parent"
+                sothree:layout_constraintBottom_toBottomOf="parent"
+                sothree:layout_constraintLeft_toRightOf="@id/saleToggleButton"
+                sothree:layout_constraintRight_toRightOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
 
 

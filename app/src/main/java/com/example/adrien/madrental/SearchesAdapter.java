@@ -1,5 +1,7 @@
 package com.example.adrien.madrental;
 
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -29,11 +32,12 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
 
     public class SearchViewHolder extends RecyclerView.ViewHolder
     {
-        //Create future reference of searchLabel
+        //Initialize variables
         public TextView searchName;
         public TextView searchBaseDailyPrice;
         public TextView searchCo2Category;
         public ImageView searchImage;
+        public ConstraintLayout searchViewWrapper;
 
         //Constructor
         public SearchViewHolder(final View itemView)
@@ -41,10 +45,23 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
             super(itemView);
 
             //Catch ID
+            searchViewWrapper = itemView.findViewById(R.id.searchViewWrapper);
             searchName = itemView.findViewById(R.id.searchName);
             searchBaseDailyPrice = itemView.findViewById(R.id.searchBaseDailyPrice);
             searchCo2Category = itemView.findViewById(R.id.searchCo2Category);
             searchImage = itemView.findViewById(R.id.searchImage);
+
+            // listener :
+            searchViewWrapper.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent intent = new Intent(itemView.getContext(), BookingState1.class);
+                    intent.putExtra("searchList", 123);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 
@@ -59,6 +76,7 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
     @Override
     public void onBindViewHolder(SearchViewHolder holder, int position)
     {
+        //Catch values
         holder.searchName.setText(searchList.get(position).name);
         holder.searchBaseDailyPrice.setText(searchList.get(position).baseDailyPrice.toString() + " € / jour");
         holder.searchCo2Category.setText("Catégorie CO2 : " + searchList.get(position).co2Category);
