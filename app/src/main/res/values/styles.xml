@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="defaultButton" parent="TextAppearance.AppCompat.Button">
+    <style name="defaultButton">
         <item name="android:background">@drawable/button_gradiant</item>
         <item name="android:textSize">@dimen/buttonTextSize</item>
         <item name="android:textColor">@color/buttonText</item>
@@ -20,7 +20,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="defaultEditText" parent="TextAppearance.AppCompat">
+    <style name="defaultEditText">
         <item name="android:background">@drawable/edit_text</item>
         <item name="android:textSize">@dimen/editTextTextSize</item>
         <item name="android:textColor">@color/editTextColor</item>
@@ -31,6 +31,5 @@
         <item name="android:layout_marginTop">@dimen/editTextMarginY</item>
         <item name="android:layout_marginBottom">@dimen/editTextMarginY</item>
     </style>
-
 
 </resources>

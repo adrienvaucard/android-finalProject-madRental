@@ -1,5 +1,6 @@
 package com.example.adrien.madrental;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,5 +37,6 @@ public class SearchesActivity extends AppCompatActivity {
         //Adapter
         searchesAdapter = new SearchesAdapter(searchList);
         recyclerView.setAdapter(searchesAdapter);
+
     }
 }
