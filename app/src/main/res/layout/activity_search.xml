@@ -20,8 +20,17 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Test Sliding panel" />
+            android:layout_height="60dp"
+            android:text="Filtrer"
+            android:textSize="22sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/getJson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </android.support.constraint.ConstraintLayout>
 
 
