@@ -1,6 +1,7 @@
 package com.example.adrien.madrental;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
+import org.parceler.Parcels;
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -58,7 +60,16 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
                 public void onClick(View view)
                 {
                     Intent intent = new Intent(itemView.getContext(), BookingState1.class);
-                    intent.putExtra("searchList", 123);
+                    intent.putExtra("searchId", searchList.get(getAdapterPosition()).id);
+                    intent.putExtra("searchName", searchList.get(getAdapterPosition()).name);
+                    intent.putExtra("searchImage", searchList.get(getAdapterPosition()).image);
+                    intent.putExtra("searchAvailable", searchList.get(getAdapterPosition()).available);
+                    intent.putExtra("searchBaseDailyPrice", searchList.get(getAdapterPosition()).baseDailyPrice);
+                    intent.putExtra("searchSale", searchList.get(getAdapterPosition()).sale);
+                    intent.putExtra("searchAgeMin", searchList.get(getAdapterPosition()).ageMin);
+                    intent.putExtra("searchCo2Category", searchList.get(getAdapterPosition()).co2Category);
+                    intent.putExtra("searchEquipments",  searchList.get(getAdapterPosition()).equipments.toString());
+                    intent.putExtra("searchOptions", searchList.get(getAdapterPosition()).options.toString());
                     itemView.getContext().startActivity(intent);
                 }
             });

@@ -7,68 +7,166 @@
     tools:context=".BookingState1">
 
     <TextView
-        android:id="@+id/vehicleId"
+        android:id="@+id/vehicleName"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="60dp"
         android:gravity="center"
+        android:paddingTop="15dp"
         android:text="Buggy"
         android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/vehicleImage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    
+
+        />
+
     <ImageView
         android:id="@+id/vehicleImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/vehicleInfos"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/vehicleName" />
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/vehicleInfos"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="125dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vehicleImage">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/dailyPriceLabel"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prix : "
+            android:textSize="17sp"
+            android:textColor="#000000"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/dailyPrice"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="29 € / jour"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/categoryLabel"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catégorie : "
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dailyPriceLabel"/>
 
         <TextView
-            android:id="@+id/dailyPrice"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="G"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dailyPrice"/>
 
         <TextView
             android:id="@+id/equipmentsLabel"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Equipements : "
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryLabel"/>
 
         <TextView
             android:id="@+id/equipments"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Climatisation"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category"/>
 
 
     </android.support.constraint.ConstraintLayout>
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/vehicleOptions"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="#d9d9d9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vehicleInfos">
+
+        <TextView
+            android:id="@+id/vehicleOptionsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPTIONS"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ToggleButton
+            android:id="@+id/saleToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehicleOptionsLabel"/>
+
+        <TextView
+            android:id="@+id/saleToggleButtonLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:text="Mitrailleuse"
+            android:layout_marginRight="100dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehicleOptionsLabel"
+            />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/bookings"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        style="@style/defaultButton"
+        android:text="Suivant"
+        android:onClick="goToBookings"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vehicleOptions"
+        app:layout_constraintBottom_toBottomOf="parent  "
+        />
+
+
+    </android.support.constraint.ConstraintLayout>
