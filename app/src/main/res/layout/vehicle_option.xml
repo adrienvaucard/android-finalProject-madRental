@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -11,17 +12,29 @@
         android:layout_marginLeft="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/saleToggleButtonLabel"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:gravity="center"
-        android:textSize="17sp"
-        android:textColor="#000000"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/darkText"
         android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toRightOf="@id/saleToggleButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/saleToggleButtonPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/darkText"
+        app:layout_constraintLeft_toRightOf="@id/saleToggleButtonLabel"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />

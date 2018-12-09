@@ -4,7 +4,7 @@
     android:shape="rectangle">
     <!--  Gradient Bg for listrow -->
     <solid
-        android:color="@color/editTextBackground" />
+        android:color="@color/greyBackground" />
 
     <corners
         android:radius="50dp" />

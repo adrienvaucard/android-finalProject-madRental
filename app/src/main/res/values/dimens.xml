@@ -22,5 +22,9 @@
     <dimen name="profileInfoTextMarginX">50dp</dimen>
     <dimen name="profileApplyButtonMarginY">50dp</dimen>
 
+    <dimen name="titleTextSize">25sp</dimen>
+    <dimen name="defaultTextSize">17sp</dimen>
+    <dimen name="defaultBigTextSize">22sp</dimen>
+
 
 </resources>

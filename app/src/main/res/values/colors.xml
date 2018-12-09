@@ -6,6 +6,6 @@
     <color name="appTitleColor">#A80000</color>
     <color name="buttonText">#FFFFFF</color>
     <color name="editTextColor">#918F90</color>
-    <color name="editTextBackground">#D9D9D9</color>
-    <color name="textViewProfile">#000000</color>
+    <color name="greyBackground">#D9D9D9</color>
+    <color name="darkText">#000000</color>
 </resources>
