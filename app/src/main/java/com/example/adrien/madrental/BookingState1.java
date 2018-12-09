@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -17,6 +19,7 @@ import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BookingState1 extends AppCompatActivity {
 
@@ -31,6 +34,11 @@ public class BookingState1 extends AppCompatActivity {
     public JSONArray equipments;
     public JSONArray options;
 
+    //Initialize lists of equipments and options
+    public List<String> equipmentsList = new ArrayList<String>();
+    public List<String> optionsList = new ArrayList<String>();
+
+
     //Initialize view ids
     public TextView vId;
     public TextView vName;
@@ -40,8 +48,8 @@ public class BookingState1 extends AppCompatActivity {
     public TextView vSale;
     public TextView vAgeMin;
     public TextView vCategory;
-    public TextView vEquipments;
-    public TextView vOptions;
+    public ListView vEquipments;
+    public ListView vOptions;
     public ConstraintLayout vVehicleInfos;
 
     @Override
@@ -56,6 +64,7 @@ public class BookingState1 extends AppCompatActivity {
         vCategory = findViewById(R.id.category);
         vVehicleInfos = findViewById(R.id.vehicleInfos);
         vEquipments = findViewById(R.id.equipments);
+        vOptions = findViewById(R.id.options);
 
         //Get parameters from RecyclerView
         id = getIntent().getIntExtra("searchId", 0);
@@ -78,7 +87,6 @@ public class BookingState1 extends AppCompatActivity {
         }
 
 
-
         //Set values in Layout
         vName.setText(name);
         Picasso.with(this)
@@ -88,6 +96,35 @@ public class BookingState1 extends AppCompatActivity {
                 .into(vImage);
         vDailyPrice.setText(baseDailyPrice.toString() + " € / jour");
         vCategory.setText(co2Category);
+
+
+        //Print vehicle equipments names
+        for(int i = 0; i < equipments.length(); i++) {
+            try {
+                equipmentsList.add(equipments.getJSONObject(i).getString("nom"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        final ArrayAdapter<String> equipmentsAdapter = new ArrayAdapter<String>(BookingState1.this,
+                R.layout.vehicle_equipment, equipmentsList);
+        vEquipments.setAdapter(equipmentsAdapter);
+
+
+        //Print vehicle options
+        for(int i = 0; i < options.length(); i++) {
+            try {
+                Log.i("options", options.toString());
+                optionsList.add(options.getJSONObject(i).getString("nom") + " : " + options.getJSONObject(i).getString("prix") + " €");
+            } catch (JSONException e) {
+                Log.i("Erreur ajout", "Haha erreur ajout");
+                e.printStackTrace();
+            }
+        }
+        final ArrayAdapter<String> optionsAdapter = new ArrayAdapter<String>(BookingState1.this,
+                R.layout.vehicle_option, R.id.saleToggleButtonLabel, optionsList);
+        vOptions.setAdapter(optionsAdapter);
+
 
     }
 }
