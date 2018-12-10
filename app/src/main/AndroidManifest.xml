@@ -30,7 +30,10 @@
             android:label="Recherche de véhicules" />
         <activity
             android:name=".BookingState1"
-            android:label="Réservation - étape 1 / 2"></activity>
+            android:label="Réservation - étape 1 / 2" />
+        <activity
+            android:name=".BookingState2"
+            android:label="Réservation - étape 2 / 2" />
     </application>
 
 </manifest>

@@ -1,8 +1,10 @@
 package com.example.adrien.madrental;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -30,18 +32,17 @@ public class BookingState1 extends AppCompatActivity {
     public JSONArray equipments;
     public JSONArray options;
 
+    //Initialize price that will increment with options toggleButtons
+    public Integer totalPrice = 0;
+
     //Initialize lists of equipments and options
     public List<String> equipmentsList = new ArrayList<String>();
     public ArrayList<HashMap<String, String>> optionsList = new ArrayList<HashMap<String, String>>();
 
     //Initialize view ids
-    public TextView vId;
     public TextView vName;
     public ImageView vImage;
-    public TextView vAvailable;
     public TextView vDailyPrice;
-    public TextView vSale;
-    public TextView vAgeMin;
     public TextView vCategory;
     public ListView vEquipments;
     public ListView vOptions;
@@ -114,6 +115,8 @@ public class BookingState1 extends AppCompatActivity {
                 map = new HashMap<String, String>();
                 map.put("nom", options.getJSONObject(i).getString("nom") + " : ");
                 map.put("prix", options.getJSONObject(i).getString("prix") + " €");
+                map.put("id", options.getJSONObject(i).getString("id"));
+                map.put("rawPrice", options.getJSONObject(i).getString("prix"));
                 optionsList.add(map);
 
             } catch (JSONException e) {
@@ -122,10 +125,25 @@ public class BookingState1 extends AppCompatActivity {
         }
         OptionsAdapter optionsAdapter = new OptionsAdapter(BookingState1.this, optionsList,
                 R.layout.vehicle_option, new String[]{"nom", "prix"}, new int[]{
-                R.id.saleToggleButtonLabel, R.id.saleToggleButtonPrice});
+                R.id.saleToggleButtonLabel, R.id.saleToggleButtonPrice}, this);
         vOptions.setAdapter(optionsAdapter);
+    }
 
+    public void goToBookingState2(View view) {
+        Intent intent = new Intent(this, BookingState2.class);
+        intent.putExtra("vId", id);
+        intent.putExtra("vName", name);
+        intent.putExtra("vImage", image);
+        intent.putExtra("vTotalPrice", totalPrice + baseDailyPrice);
+        startActivity(intent);
+    }
 
+    public Integer getTotalPrice() {
+        return this.totalPrice;
+    }
+
+    public void setTotalPrice(Integer price) {
+        this.totalPrice = price;
     }
 
 }

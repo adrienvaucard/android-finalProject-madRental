@@ -1,59 +1,71 @@
 package com.example.adrien.madrental;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OptionsAdapter extends SimpleAdapter
-{
+public class OptionsAdapter extends SimpleAdapter {
     private LayoutInflater mInflater;
+    private BookingState1 bookingState1;
 
-    public OptionsAdapter (Context context, List<? extends Map<String, ?>> data,
-                          int resource, String[] from, int[] to)
-    {
-        super (context, data, resource, from, to);
-        mInflater = LayoutInflater.from (context);
-
+    public OptionsAdapter(Context context, List<? extends Map<String, ?>> data,
+                          int resource, String[] from, int[] to, BookingState1 bookingActivityState1) {
+        super(context, data, resource, from, to);
+        mInflater = LayoutInflater.from(context);
+        this.bookingState1 = bookingActivityState1;
     }
 
     @Override
-    public Object getItem (int position)
-    {
-        return super.getItem (position);
+    public Object getItem(int position) {
+        return super.getItem(position);
     }
 
     @Override
-    public View getView (int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent) {
         //Test if view is created, to not recreate it
-        if (convertView == null)
-        {
+        if (convertView == null) {
+            HashMap<String, String> vehicleInfos = (HashMap<String, String>) getItem(position);
+            String vID = vehicleInfos.get("id");
+            final Integer vPrice = Integer.parseInt(vehicleInfos.get("rawPrice"));
+
             //Get View Elements
-            convertView = mInflater.inflate (R.layout.vehicle_option, null);
+            convertView = mInflater.inflate(R.layout.vehicle_option, null);
 
             //Get ToggleButton ID
-            ToggleButton tb = convertView.findViewById (R.id.saleToggleButton);
+            final ToggleButton tb = convertView.findViewById(R.id.saleToggleButton);
 
             //Set tag to retrieve it later
-            tb.setTag ("toggle" + position);
+            tb.setTag(vID);
+            tb.setOnClickListener(new View.OnClickListener() {
 
-            Log.i("Tag", tb.getTag().toString());
+                public void onClick(View v) {
 
+                    if (tb.isChecked()) {
+                        Log.i("checked", tb.getTag() + " checked");
+                        Integer newPrice = bookingState1.getTotalPrice() + vPrice;
+                        bookingState1.setTotalPrice(newPrice);
+                        Log.i("New Price", "" + bookingState1.totalPrice);
+
+                    } else {
+                        Log.i("unchecked", tb.getTag() + " unchecked");
+                        Integer newPrice = bookingState1.getTotalPrice() - vPrice;
+                        bookingState1.setTotalPrice(newPrice);
+                        Log.i("New Price", "" + bookingState1.totalPrice);
+                    }
+                }
+            });
         }
-
-
-        return super.getView (position, convertView, parent);
+        return super.getView(position, convertView, parent);
     }
 
 }
