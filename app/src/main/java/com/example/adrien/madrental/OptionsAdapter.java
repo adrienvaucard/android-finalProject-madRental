@@ -51,16 +51,12 @@ public class OptionsAdapter extends SimpleAdapter {
                 public void onClick(View v) {
 
                     if (tb.isChecked()) {
-                        Log.i("checked", tb.getTag() + " checked");
                         Integer newPrice = bookingState1.getTotalPrice() + vPrice;
                         bookingState1.setTotalPrice(newPrice);
-                        Log.i("New Price", "" + bookingState1.totalPrice);
 
                     } else {
-                        Log.i("unchecked", tb.getTag() + " unchecked");
                         Integer newPrice = bookingState1.getTotalPrice() - vPrice;
                         bookingState1.setTotalPrice(newPrice);
-                        Log.i("New Price", "" + bookingState1.totalPrice);
                     }
                 }
             });
