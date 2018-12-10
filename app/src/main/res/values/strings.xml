@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Mad Rental</string>
     <string name="launchResearch">Lancer une recherche :</string>
-    <string name="startReservationText">Date de début de réservation</string>
-    <string name="endReservationText">Date de fin de réservation</string>
+    <string name="startReservationText">Date de début (jj/mm/aaaa)</string>
+    <string name="endReservationText">Date de fin (jj/mm/aaaa)</string>
     <string name="profileInfoText">Merci de renseigner votre profil :</string>
     <string name="editeTextProfileName">Nom</string>
     <string name="editTextProfileFirstName">Prénom</string>
