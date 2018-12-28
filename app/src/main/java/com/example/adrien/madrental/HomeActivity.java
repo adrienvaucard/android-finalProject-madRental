@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class HomeActivity extends AppCompatActivity {
 
     private TextView appTitle;
@@ -42,10 +46,33 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToSearch(View view) {
+    public void goToSearch(View view ) {
 
-        Intent intent = new Intent(this, SearchesActivity.class);
-        startActivity(intent);
+        String startDate = editTextStartReservation.getText().toString();
+        String endDate = editTextEndReservation.getText().toString();
+
+        Date date1 = null;
+        Date date2 = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            date1 = sdf.parse(startDate);
+            date2 = sdf.parse(endDate);
+            if (!startDate.equals(sdf.format(date1)) || !endDate.equals(sdf.format(date2))) {
+                date1 = null;
+                date2 = null;
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        if (date1 == null || date2 == null) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, SearchesActivity.class);
+            startActivity(intent);
+        }
+
+
     }
 
 }
