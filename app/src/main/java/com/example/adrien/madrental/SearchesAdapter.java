@@ -70,6 +70,8 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
                     intent.putExtra("searchCo2Category", searchList.get(getAdapterPosition()).co2Category);
                     intent.putExtra("searchEquipments",  searchList.get(getAdapterPosition()).equipments.toString());
                     intent.putExtra("searchOptions", searchList.get(getAdapterPosition()).options.toString());
+                    intent.putExtra("startDate", searchList.get(getAdapterPosition()).startDate.toString());
+                    intent.putExtra("endDate", searchList.get(getAdapterPosition()).endDate.toString());
                     itemView.getContext().startActivity(intent);
                 }
             });

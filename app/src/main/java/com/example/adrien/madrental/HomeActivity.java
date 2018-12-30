@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -65,10 +66,11 @@ public class HomeActivity extends AppCompatActivity {
             ex.printStackTrace();
         }
         if (date1 == null || date2 == null) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
+            Toast.makeText(this, "Erreur de format de date", Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(this, SearchesActivity.class);
+            intent.putExtra("startDate", date1.toString());
+            intent.putExtra("endDate", date2.toString());
             startActivity(intent);
         }
 

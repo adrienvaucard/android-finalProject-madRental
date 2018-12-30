@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -34,6 +35,9 @@ public class SearchesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        final Date startDate = new Date(getIntent().getStringExtra("startDate"));
+        final Date endDate = new Date(getIntent().getStringExtra("endDate"));
 
         //Catch IDs
         recyclerView = findViewById(R.id.searchRecyclerView);
@@ -81,7 +85,7 @@ public class SearchesActivity extends AppCompatActivity {
                                 JSONArray vEquipments = forJsonObject.getJSONArray("equipements");
                                 JSONArray vOptions = forJsonObject.getJSONArray("options");
 
-                                searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions));
+                                searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

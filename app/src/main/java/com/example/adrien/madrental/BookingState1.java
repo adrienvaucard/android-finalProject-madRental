@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,6 +32,8 @@ public class BookingState1 extends AppCompatActivity {
     public String co2Category;
     public JSONArray equipments;
     public JSONArray options;
+    public Date startDate;
+    public Date endDate;
 
     //Initialize price that will increment with options toggleButtons
     public Integer totalPrice = 0;
@@ -81,6 +84,8 @@ public class BookingState1 extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        startDate = new Date(getIntent().getStringExtra("startDate"));
+        endDate = new Date(getIntent().getStringExtra("endDate"));
 
 
         //Set values in Layout
@@ -130,11 +135,23 @@ public class BookingState1 extends AppCompatActivity {
     }
 
     public void goToBookingState2(View view) {
+        // Calculate Rental Price depending on Days
+
+        //Find Days between dates
+        long diff = endDate.getTime() - startDate.getTime();
+        int days = Math.round(diff / (1000*60*60*24)) + 1;
+
+        //Define rental Price
+        int rentalPrice = baseDailyPrice * days;
+
+
         Intent intent = new Intent(this, BookingState2.class);
         intent.putExtra("vId", id);
         intent.putExtra("vName", name);
         intent.putExtra("vImage", image);
-        intent.putExtra("vTotalPrice", totalPrice + baseDailyPrice);
+        intent.putExtra("vTotalPrice", totalPrice + rentalPrice);
+        intent.putExtra("startDate", startDate.toString());
+        intent.putExtra("endDate", endDate.toString());
         startActivity(intent);
     }
 

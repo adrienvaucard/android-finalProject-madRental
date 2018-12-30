@@ -2,6 +2,8 @@ package com.example.adrien.madrental;
 
 import org.json.JSONArray;
 
+import java.util.Date;
+
 public class Search
 {
     // Attributes :
@@ -15,9 +17,11 @@ public class Search
     public String co2Category;
     public JSONArray equipments;
     public JSONArray options;
+    public Date startDate;
+    public Date endDate;
 
     // Constructor :
-    public Search(Integer id, String name, String image, Integer available, Integer baseDailyPrice, Integer sale, Integer ageMin, String co2Category, JSONArray equipments, JSONArray options )
+    public Search(Integer id, String name, String image, Integer available, Integer baseDailyPrice, Integer sale, Integer ageMin, String co2Category, JSONArray equipments, JSONArray options, Date startDate, Date endDate )
     {
         this.id = id;
         this.name = name;
@@ -29,5 +33,7 @@ public class Search
         this.co2Category = co2Category;
         this.equipments = equipments;
         this.options = options;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 }
