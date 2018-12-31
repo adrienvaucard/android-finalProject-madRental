@@ -71,6 +71,8 @@ public class ProfileActivity extends AppCompatActivity {
                     editor.apply();
                     editor.commit();
 
+                    Toast.makeText(ProfileActivity.this, "Informations enregistrées", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
