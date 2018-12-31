@@ -1,8 +1,12 @@
 package com.example.adrien.madrental;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -16,6 +20,7 @@ public class BookingState2 extends AppCompatActivity {
     public Date endDate;
 
     public TextView totalPrice;
+    public Button validateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,19 @@ public class BookingState2 extends AppCompatActivity {
 
         totalPrice = findViewById(R.id.totalPriceText);
         totalPrice.setText("Prix final : " + vTotalPrice + " €");
+
+        validateButton = findViewById(R.id.validateButton);
+        validateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(BookingState2.this, "Location prise en compte, bonne route !", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(BookingState2.this, HomeActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
 
 
     }
