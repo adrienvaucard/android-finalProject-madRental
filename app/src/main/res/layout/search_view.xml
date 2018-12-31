@@ -19,6 +19,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <TextView
+            android:id="@+id/searchPromotion"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="9dp"
+            android:textSize="@dimen/defaultTextSize"
+            android:textColor="@color/buttonText"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="@id/searchImage"
+            app:layout_constraintTop_toTopOf="@id/searchImage"/>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"

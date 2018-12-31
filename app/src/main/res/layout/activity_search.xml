@@ -39,23 +39,23 @@
             sothree:layout_constraintLeft_toLeftOf="parent"
             sothree:layout_constraintRight_toRightOf="parent">
 
-            <ToggleButton
-                android:id="@+id/saleToggleButton"
+            <Switch
+                android:id="@+id/saleSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 sothree:layout_constraintTop_toTopOf="parent"
                 sothree:layout_constraintBottom_toBottomOf="parent"
-                sothree:layout_constraintRight_toLeftOf="@id/saleToggleButtonLabel"
+                sothree:layout_constraintRight_toLeftOf="@id/saleSwitchLabel"
                 sothree:layout_constraintLeft_toLeftOf="parent"/>
 
             <TextView
-                android:id="@+id/saleToggleButtonLabel"
+                android:id="@+id/saleSwitchLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="En promotion uniquement"
                 sothree:layout_constraintTop_toTopOf="parent"
                 sothree:layout_constraintBottom_toBottomOf="parent"
-                sothree:layout_constraintLeft_toRightOf="@id/saleToggleButton"
+                sothree:layout_constraintLeft_toRightOf="@id/saleSwitch"
                 sothree:layout_constraintRight_toRightOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>

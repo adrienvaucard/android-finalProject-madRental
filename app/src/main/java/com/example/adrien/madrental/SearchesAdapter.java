@@ -3,6 +3,7 @@ package com.example.adrien.madrental;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
         public TextView searchCo2Category;
         public ImageView searchImage;
         public ConstraintLayout searchViewWrapper;
+        public TextView searchPromotion;
 
         //Constructor
         public SearchViewHolder(final View itemView)
@@ -52,6 +54,7 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
             searchBaseDailyPrice = itemView.findViewById(R.id.searchBaseDailyPrice);
             searchCo2Category = itemView.findViewById(R.id.searchCo2Category);
             searchImage = itemView.findViewById(R.id.searchImage);
+            searchPromotion = itemView.findViewById(R.id.searchPromotion);
 
             // listener :
             searchViewWrapper.setOnClickListener(new View.OnClickListener()
@@ -99,6 +102,11 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
                 .fit()
                 .centerCrop() // ou centerInside()
                 .into(holder.searchImage);
+
+        if (searchList.get(position).sale != 0 && searchList.get(position).sale != null) {
+            holder.searchPromotion.setBackground(ContextCompat.getDrawable(holder.searchPromotion.getContext(), R.drawable.promotion_gradiant));
+            holder.searchPromotion.setText("- " + searchList.get(position).sale.toString() + " %");
+        }
     }
 
     @Override

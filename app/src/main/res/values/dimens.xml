@@ -8,6 +8,8 @@
     <dimen name="buttonTextSize">30sp</dimen>
     <dimen name="buttonBorderRadius">30dp</dimen>
 
+    <dimen name="promotionBorderRadius">30dp</dimen>
+
     <dimen name="homeButtonMarginY">50dp</dimen>
 
     <dimen name="textViewResearchMarginTop">70dp</dimen>

@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -29,6 +31,7 @@ public class SearchesActivity extends AppCompatActivity {
     private SearchesAdapter searchesAdapter = null;
     private JSONArray calledJSON;
     private JSONObject forJsonObject;
+    private Switch saleSwitch;
     final List<Search> searchList = new ArrayList<>();
 
     @Override
@@ -41,6 +44,7 @@ public class SearchesActivity extends AppCompatActivity {
 
         //Catch IDs
         recyclerView = findViewById(R.id.searchRecyclerView);
+        saleSwitch = findViewById(R.id.saleSwitch);
 
         //Better performances
         recyclerView.setHasFixedSize(true);
