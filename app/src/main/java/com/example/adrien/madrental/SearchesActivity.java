@@ -128,4 +128,5 @@ public class SearchesActivity extends AppCompatActivity {
         }
         return false;
     }
+
 }

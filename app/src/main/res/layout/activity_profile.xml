@@ -52,6 +52,7 @@
         android:layout_height="50dp"
         style="@style/defaultEditText"
         android:hint="@string/editTextProfileBirthDate"
+        android:inputType="date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextProfileFirstName"
