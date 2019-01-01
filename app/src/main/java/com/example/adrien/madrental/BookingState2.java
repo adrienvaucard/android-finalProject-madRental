@@ -45,11 +45,21 @@ public class BookingState2 extends AppCompatActivity {
 
                 Intent intent = new Intent(BookingState2.this, HomeActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.page_slide_horizontal_in,
+                        R.anim.page_slide_horizontal_out);
 
 
             }
         });
 
 
+    }
+
+    @Override
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.page_slide_horizontal_out,
+                R.anim.page_slide_horizontal_back);
     }
 }

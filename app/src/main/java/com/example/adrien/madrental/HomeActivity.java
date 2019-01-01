@@ -40,11 +40,15 @@ public class HomeActivity extends AppCompatActivity {
     public void goToBookings(View view) {
         Intent intent = new Intent(this, BookingsActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.page_slide_horizontal_in,
+                R.anim.page_slide_horizontal_out);
     }
 
     public void goToProfile(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.page_slide_horizontal_in,
+                R.anim.page_slide_horizontal_out);
     }
 
     public void goToSearch(View view ) {
@@ -72,6 +76,8 @@ public class HomeActivity extends AppCompatActivity {
             intent.putExtra("startDate", date1.toString());
             intent.putExtra("endDate", date2.toString());
             startActivity(intent);
+            overridePendingTransition(R.anim.page_slide_horizontal_in,
+                    R.anim.page_slide_horizontal_out);
         }
 
 

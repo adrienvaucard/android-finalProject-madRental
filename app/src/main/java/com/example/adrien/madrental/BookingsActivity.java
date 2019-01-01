@@ -37,4 +37,14 @@ public class BookingsActivity extends AppCompatActivity {
         bookingsAdapter = new BookingsAdapter(bookingList);
         recyclerView.setAdapter(bookingsAdapter);
     }
+
+    @Override
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.page_slide_horizontal_out,
+                R.anim.page_slide_horizontal_back);
+    }
 }
+
+

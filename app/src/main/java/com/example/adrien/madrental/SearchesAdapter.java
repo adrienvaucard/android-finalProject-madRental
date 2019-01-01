@@ -1,5 +1,6 @@
 package com.example.adrien.madrental;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
@@ -25,10 +26,12 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
 {
     //Define list of items
     private List<Search> searchList;
+    private Activity activity;
 
     //Constructor
-    public SearchesAdapter(List<Search> searchList)
+    public SearchesAdapter(Activity activity, List<Search> searchList)
     {
+        this.activity = activity;
         this.searchList = searchList;
     }
 
@@ -76,6 +79,8 @@ public class SearchesAdapter extends RecyclerView.Adapter<SearchesAdapter.Search
                     intent.putExtra("startDate", searchList.get(getAdapterPosition()).startDate.toString());
                     intent.putExtra("endDate", searchList.get(getAdapterPosition()).endDate.toString());
                     itemView.getContext().startActivity(intent);
+                    activity.overridePendingTransition(R.anim.page_slide_horizontal_in,
+                            R.anim.page_slide_horizontal_out);
                 }
             });
         }

@@ -1,6 +1,7 @@
 package com.example.adrien.madrental;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -169,7 +170,7 @@ public class SearchesActivity extends AppCompatActivity {
                         }
 
                         //Adapter
-                        searchesAdapter = new SearchesAdapter(searchList);
+                        searchesAdapter = new SearchesAdapter(SearchesActivity.this, searchList);
                         recyclerView.setAdapter(searchesAdapter);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -186,4 +187,11 @@ public class SearchesActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.page_slide_horizontal_out,
+                R.anim.page_slide_horizontal_back);
+    }
 }

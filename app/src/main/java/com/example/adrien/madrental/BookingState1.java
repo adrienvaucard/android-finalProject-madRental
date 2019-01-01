@@ -157,6 +157,8 @@ public class BookingState1 extends AppCompatActivity {
         intent.putExtra("startDate", startDate.toString());
         intent.putExtra("endDate", endDate.toString());
         startActivity(intent);
+        overridePendingTransition(R.anim.page_slide_horizontal_in,
+                R.anim.page_slide_horizontal_out);
     }
 
     public Integer getTotalPrice() {
@@ -165,6 +167,14 @@ public class BookingState1 extends AppCompatActivity {
 
     public void setTotalPrice(Integer price) {
         this.totalPrice = price;
+    }
+
+    @Override
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.page_slide_horizontal_out,
+                R.anim.page_slide_horizontal_back);
     }
 
 }

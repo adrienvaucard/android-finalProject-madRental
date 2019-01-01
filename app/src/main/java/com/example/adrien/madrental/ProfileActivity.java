@@ -83,4 +83,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(R.anim.page_slide_horizontal_out,
+                R.anim.page_slide_horizontal_back);
+    }
 }
