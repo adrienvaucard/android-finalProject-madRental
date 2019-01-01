@@ -31,10 +31,6 @@ public class HomeActivity extends AppCompatActivity {
         bookings = findViewById(R.id.bookings);
         editTextStartReservation = findViewById(R.id.editTextStartReservation);
         editTextEndReservation = findViewById(R.id.editTextEndReservation);
-
-        //Assign custom font to App Title
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/BreeSerif-Regular.ttf");
-        //appTitle.setTypeface(font);
     }
 
     public void goToBookings(View view) {

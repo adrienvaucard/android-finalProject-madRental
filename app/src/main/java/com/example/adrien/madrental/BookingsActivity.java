@@ -1,9 +1,11 @@
 package com.example.adrien.madrental;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,10 @@ public class BookingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookings);
+
+        //Initialize return button in action bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         //Catch IDs
         recyclerView = findViewById(R.id.bookingRecyclerView);
@@ -36,6 +42,19 @@ public class BookingsActivity extends AppCompatActivity {
         //Adapter
         bookingsAdapter = new BookingsAdapter(bookingList);
         recyclerView.setAdapter(bookingsAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
