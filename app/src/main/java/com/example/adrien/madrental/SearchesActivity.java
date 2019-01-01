@@ -66,8 +66,8 @@ public class SearchesActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        int diff = (int)today.getTime() - (int)birthDate.getTime();
-        final int age = Math.round(diff / (1000*60*60*24*365));
+        long diff = today.getTime() - birthDate.getTime();
+        final int age = Math.round(diff / 1000/60/60/24/365);
 
 
         //Catch IDs
@@ -85,6 +85,7 @@ public class SearchesActivity extends AppCompatActivity {
 
         saleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                searchList.clear();
                 if (isChecked) {
                     callJSON(age, true);
                 }
@@ -110,7 +111,7 @@ public class SearchesActivity extends AppCompatActivity {
         return false;
     }
 
-    public void callJSON(Integer age, Boolean promotion) {
+    public void callJSON(final Integer age, final Boolean promotion) {
         //Get JSON from webservice
         if (isConnected(SearchesActivity.this)) {
 
@@ -120,7 +121,6 @@ public class SearchesActivity extends AppCompatActivity {
             //Parameters
             RequestParams requestParams = new RequestParams();
             requestParams.put("agemin", age);
-            Log.i("montag", age.toString());
             requestParams.put("promotion", promotion);
 
             //Call
@@ -151,7 +151,17 @@ public class SearchesActivity extends AppCompatActivity {
                                 JSONArray vEquipments = forJsonObject.getJSONArray("equipements");
                                 JSONArray vOptions = forJsonObject.getJSONArray("options");
 
-                                searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
+                                if (age >= vAgeMin) {
+                                    if (promotion) {
+                                        if (vSale != 0) {
+                                            searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
+                                        }
+                                    }
+                                    else {
+                                        searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
+                                    }
+                                }
+
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

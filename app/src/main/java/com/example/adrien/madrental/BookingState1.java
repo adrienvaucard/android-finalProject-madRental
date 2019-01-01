@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -142,7 +143,10 @@ public class BookingState1 extends AppCompatActivity {
         int days = Math.round(diff / (1000*60*60*24)) + 1;
 
         //Define rental Price
-        int rentalPrice = baseDailyPrice * days;
+        int rentalPrice = Math.round((1 - ((float)sale / 100)) * (baseDailyPrice * days));
+        Log.i("Sale", sale.toString());
+        Log.i("Sale/100", String.valueOf((sale / 100)));
+        Log.i("percentage", String.valueOf( 1 - (sale / 100)));
 
 
         Intent intent = new Intent(this, BookingState2.class);

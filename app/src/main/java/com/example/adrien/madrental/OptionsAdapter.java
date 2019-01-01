@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SimpleAdapter;
+import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -42,7 +43,7 @@ public class OptionsAdapter extends SimpleAdapter {
             convertView = mInflater.inflate(R.layout.vehicle_option, null);
 
             //Get ToggleButton ID
-            final ToggleButton tb = convertView.findViewById(R.id.saleToggleButton);
+            final Switch tb = convertView.findViewById(R.id.saleToggleButton);
 
             //Set tag to retrieve it later
             tb.setTag(vID);
