@@ -1,7 +1,9 @@
 package com.example.adrien.madrental;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +54,9 @@ public class HomeActivity extends AppCompatActivity {
         String startDate = editTextStartReservation.getText().toString();
         String endDate = editTextEndReservation.getText().toString();
 
+        //Initialize SharedPreferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         Date date1 = null;
         Date date2 = null;
         try {
@@ -67,7 +72,11 @@ public class HomeActivity extends AppCompatActivity {
         }
         if (date1 == null || date2 == null) {
             Toast.makeText(this, "Erreur de format de date", Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        else if (preferences.getString("birthDate", "") == "") {
+            Toast.makeText(this, "Veuillez indiquer votre date de naissance dans votre profil", Toast.LENGTH_SHORT).show();
+        }
+        else {
             Intent intent = new Intent(this, SearchesActivity.class);
             intent.putExtra("startDate", date1.toString());
             intent.putExtra("endDate", date2.toString());

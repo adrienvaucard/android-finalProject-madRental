@@ -88,16 +88,16 @@ public class SearchesActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        callJSON(age, false);
+        callJSON(age, 0);
 
         saleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 searchList.clear();
                 if (isChecked) {
-                    callJSON(age, true);
+                    callJSON(age, 1);
                 }
                 else {
-                    callJSON(age, false);
+                    callJSON(age, 0);
                 }
             }
         });
@@ -118,7 +118,7 @@ public class SearchesActivity extends AppCompatActivity {
         return false;
     }
 
-    public void callJSON(final Integer age, final Boolean promotion) {
+    public void callJSON(final Integer age, final Integer promotion) {
         //Get JSON from webservice
         if (isConnected(SearchesActivity.this)) {
 
@@ -131,7 +131,7 @@ public class SearchesActivity extends AppCompatActivity {
             requestParams.put("promotion", promotion);
 
             //Call
-            client.get("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", new AsyncHttpResponseHandler() {
+            client.get("http://s519716619.onlinehome.fr/exchange/madrental/get-vehicules.php", requestParams, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers,
                                       byte[] response) {
@@ -158,16 +158,7 @@ public class SearchesActivity extends AppCompatActivity {
                                 JSONArray vEquipments = forJsonObject.getJSONArray("equipements");
                                 JSONArray vOptions = forJsonObject.getJSONArray("options");
 
-                                if (age >= vAgeMin) {
-                                    if (promotion) {
-                                        if (vSale != 0) {
-                                            searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
-                                        }
-                                    }
-                                    else {
-                                        searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
-                                    }
-                                }
+                                searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
 
 
                             } catch (JSONException e) {
@@ -205,7 +196,7 @@ public class SearchesActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    
+
     @Override
     public void finish()
     {
