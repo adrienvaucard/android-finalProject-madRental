@@ -127,7 +127,6 @@ public class SearchesActivity extends AppCompatActivity {
 
             //Parameters
             RequestParams requestParams = new RequestParams();
-            requestParams.put("agemin", age);
             requestParams.put("promotion", promotion);
 
             //Call
@@ -158,8 +157,10 @@ public class SearchesActivity extends AppCompatActivity {
                                 JSONArray vEquipments = forJsonObject.getJSONArray("equipements");
                                 JSONArray vOptions = forJsonObject.getJSONArray("options");
 
-                                searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
-
+                                //Another verification on age
+                                if (age >= vAgeMin) {
+                                    searchList.add(new Search(vID, vName, vImage, vAvailable, vBaseDailyPrice, vSale, vAgeMin, vCO2Category, vEquipments, vOptions, startDate, endDate));
+                                }
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
