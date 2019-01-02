@@ -4,14 +4,17 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RentalDAO {
 
-    public static List<RentalDTO> getRentals(Context context)
-    {
+    public static List<RentalDTO> getRentals(Context context) {
         // projection (colonnes utilisées après la requète) :
         String[] projection = {BaseContract.RentalContract._ID,
                 BaseContract.RentalContract.COLONNE_NAME,

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,11 +36,13 @@ public class BookingsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         //Retrieve Database values
-        List<RentalDTO> rentalsList = RentalDAO.getRentals(this);
+        List<RentalDTO> rentalsList = null;
+        rentalsList = RentalDAO.getRentals(this);
 
         //Adapter
         bookingsAdapter = new BookingsAdapter(rentalsList);
         recyclerView.setAdapter(bookingsAdapter);
+
     }
 
     @Override
