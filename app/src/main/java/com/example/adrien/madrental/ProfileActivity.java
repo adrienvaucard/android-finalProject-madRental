@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         birthDate = findViewById(R.id.editTextProfileBirthDate);
         applyProfileChanges = findViewById(R.id.applyProfileChanges);
 
+        //Autocomplete EditTexts if values have already been completed before
         if (preferences.getString("firstName", "") != "" ) {
             firstName.setText(preferences.getString("firstName", ""));
         }

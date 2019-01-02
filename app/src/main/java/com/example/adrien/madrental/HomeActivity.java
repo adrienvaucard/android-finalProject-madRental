@@ -62,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
         databaseHelper.getWritableDatabase();
 
+        //Format Dates
         Date date1 = null;
         Date date2 = null;
         Date today = new Date();
@@ -77,6 +78,8 @@ public class HomeActivity extends AppCompatActivity {
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
+
+        //Test if dates match with format required and if age is indicated
         if (date1 == null || date2 == null) {
             Toast.makeText(this, "Erreur de format de date", Toast.LENGTH_SHORT).show();
         }

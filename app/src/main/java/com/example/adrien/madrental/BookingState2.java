@@ -34,6 +34,7 @@ public class BookingState2 extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        //Retrieve intent values
         vId = getIntent().getIntExtra("vId", 0);
         vName = getIntent().getStringExtra("vName");
         vImage = getIntent().getStringExtra("vImage");
@@ -41,9 +42,11 @@ public class BookingState2 extends AppCompatActivity {
         startDate = new Date(getIntent().getStringExtra("startDate"));
         endDate = new Date(getIntent().getStringExtra("endDate"));
 
+        //Assign price to view
         totalPrice = findViewById(R.id.totalPriceText);
         totalPrice.setText("Prix final : " + vTotalPrice + " €");
 
+        //Event Listener to validate rental
         validateButton = findViewById(R.id.validateButton);
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override

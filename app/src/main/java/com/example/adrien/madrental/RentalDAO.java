@@ -15,7 +15,7 @@ import java.util.List;
 public class RentalDAO {
 
     public static List<RentalDTO> getRentals(Context context) {
-        // projection (colonnes utilisées après la requète) :
+        //Columns which will be return after query
         String[] projection = {BaseContract.RentalContract._ID,
                 BaseContract.RentalContract.COLONNE_NAME,
                 BaseContract.RentalContract.COLONNE_IMAGE,
@@ -24,11 +24,11 @@ public class RentalDAO {
                 BaseContract.RentalContract.COLONNE_ENDDATE};
 
 
-        // accès en lecture (query) :
+        //Read-Only Access
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
 
-        // requête :
+        //Query
         Cursor cursor = db.query(
                 BaseContract.RentalContract.TABLE_RENTALS,
                 projection,
@@ -40,7 +40,7 @@ public class RentalDAO {
                 null);
 
 
-        // construction de la liste de mémos
+        //Create Rentals List
         List<RentalDTO> rentalsList = new ArrayList<>();
         if (cursor != null)
         {
@@ -55,7 +55,7 @@ public class RentalDAO {
                     String startDate = cursor.getString(cursor.getColumnIndex(BaseContract.RentalContract.COLONNE_STARTDATE));
                     String endDate = cursor.getString(cursor.getColumnIndex(BaseContract.RentalContract.COLONNE_ENDDATE));
 
-                    // conversion des données remontées en un objet métier :
+                    //Convert values into object
                     rentalsList.add(new RentalDTO(name, image, price, startDate, endDate));
                     cursor.moveToNext();
                 }
@@ -88,7 +88,7 @@ public class RentalDAO {
         values.put(BaseContract.RentalContract.COLONNE_STARTDATE, startDate);
         values.put(BaseContract.RentalContract.COLONNE_ENDDATE, endDate);
 
-        // ajout :
+        //add in database
         return db.insert(BaseContract.RentalContract.TABLE_RENTALS, null, values);
     }
 }

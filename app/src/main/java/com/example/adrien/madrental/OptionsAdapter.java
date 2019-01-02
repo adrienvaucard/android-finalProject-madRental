@@ -42,7 +42,7 @@ public class OptionsAdapter extends SimpleAdapter {
             //Get View Elements
             convertView = mInflater.inflate(R.layout.vehicle_option, null);
 
-            //Get ToggleButton ID
+            //Get Switch ID
             final Switch tb = convertView.findViewById(R.id.saleToggleButton);
 
             //Set tag to retrieve it later
