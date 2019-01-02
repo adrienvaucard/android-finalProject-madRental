@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,10 +64,12 @@ public class HomeActivity extends AppCompatActivity {
 
         Date date1 = null;
         Date date2 = null;
+        Date today = new Date();
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             date1 = sdf.parse(startDate);
             date2 = sdf.parse(endDate);
+            today = sdf.parse(sdf.format(today));
             if (!startDate.equals(sdf.format(date1)) || !endDate.equals(sdf.format(date2))) {
                 date1 = null;
                 date2 = null;
@@ -79,6 +82,11 @@ public class HomeActivity extends AppCompatActivity {
         }
         else if (preferences.getString("birthDate", "") == "") {
             Toast.makeText(this, "Veuillez indiquer votre date de naissance dans votre profil", Toast.LENGTH_SHORT).show();
+        }
+        else if (date1.getTime() - today.getTime() < 0 || date2.getTime() - today.getTime() < 0) {
+            Toast.makeText(this, "Veuillez rentrer une date à venir", Toast.LENGTH_SHORT).show();
+            Log.i("startDate", date1.toString());
+            Log.i("today", today.toString());
         }
         else {
             Intent intent = new Intent(this, SearchesActivity.class);
