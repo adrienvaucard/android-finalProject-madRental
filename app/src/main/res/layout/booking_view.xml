@@ -1,15 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/bookingLabel"
-        android:gravity="center_vertical"
-        android:padding="8dp"
-        android:textSize="@dimen/defaultTextSize"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bookingViewWrapper"
         android:layout_width="match_parent"
-        android:layout_height="64dp"/>
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/bookingImage"
+            android:layout_width="175dp"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/bookingImage"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/bookingName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/defaultBigTextSize"
+                android:textColor="@color/darkText"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bookingStartDate"
+                />
+
+            <TextView
+                android:id="@+id/bookingStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/defaultTextSize"
+                android:paddingTop="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bookingEndDate"
+                />
+
+            <TextView
+                android:id="@+id/bookingEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/defaultTextSize"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
 
 </FrameLayout>

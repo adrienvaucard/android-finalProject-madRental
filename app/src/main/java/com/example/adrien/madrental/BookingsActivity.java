@@ -34,13 +34,11 @@ public class BookingsActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        // contenu d'exemple :
-        final List<Booking> bookingList = new ArrayList<>();
-        bookingList.add(new Booking("Buy Baguette"));
-        bookingList.add(new Booking("Go to Barbershop"));
+        //Retrieve Database values
+        List<RentalDTO> rentalsList = RentalDAO.getRentals(this);
 
         //Adapter
-        bookingsAdapter = new BookingsAdapter(bookingList);
+        bookingsAdapter = new BookingsAdapter(rentalsList);
         recyclerView.setAdapter(bookingsAdapter);
     }
 

@@ -57,6 +57,10 @@ public class HomeActivity extends AppCompatActivity {
         //Initialize SharedPreferences
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        //Create Database
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
+        databaseHelper.getWritableDatabase();
+
         Date date1 = null;
         Date date2 = null;
         try {
