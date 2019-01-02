@@ -1,10 +1,30 @@
 <resources>
     <string name="app_name">Mad Rental</string>
+
+    <!-- HOME -->
+    <string name="homeButtonBookingsLabel">Mes réservations</string>
+    <string name="homeButtonProfileLabel">Mon profil</string>
     <string name="launchResearch">Lancer une recherche :</string>
+    <string name="homeButtonSearchLabel">Rechercher</string>
     <string name="startReservationText">Date de début (jj/mm/aaaa)</string>
     <string name="endReservationText">Date de fin (jj/mm/aaaa)</string>
+
+    <!--PROFILE-->
     <string name="profileInfoText">Merci de renseigner votre profil :</string>
     <string name="editeTextProfileName">Nom</string>
     <string name="editTextProfileFirstName">Prénom</string>
     <string name="editTextProfileBirthDate">Date de naissance (jj/mm/aaaa)</string>
+
+    <!--BOOKING STATE 1-->
+    <string name="bookingState1Price">Prix : </string>
+    <string name="bookingState1Category">Catégorie : </string>
+    <string name="bookingState1Equipments">Equipements : </string>
+    <string name="bookingState1Options">OPTIONS</string>
+    <string name="bookingState1ButtonLabel">Suivant</string>
+
+    <!--BOOKING STATE 2-->
+    <string name="bookingState2MessageLabel">Merci de saisir ici vos demandes spécifiques :</string>
+    <string name="bookingState2MessageHint">Votre Message...</string>
+    <string name="bookingState2PriceLabel">Prix final : </string>
+    <string name="bookingState2ButtonLabel">Valider</string>
 </resources>
